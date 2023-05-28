@@ -57,13 +57,13 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
 console.log('latest', latest?.content)
 console.log(chat)
   return (
-    <div>
+    <div className='max-w-2xl flex flex-col justify-center mx-auto my-12'>
       <div className='my-2'>
-      <h1 className='w-100 flex items-center justify-center text-6xl font-bold '>Text to SQL Generator</h1>
-      <p className='w-100 flex items-center justify-center text-lg font-bold my-4'>Translate your Text to SQL in seconds!</p>
+      <h1 className='w-100 flex items-center justify-center text-6xl font-bold '>Text to SQL</h1>
+      <p className='w-100 flex items-center justify-center text-lg font-bold my-4'>Convert your Text to SQL in seconds with AI!</p>
       </div>
-    <div className="app max-w-3xl flex flex-col justify-center bg-gray-100 rounded-xl drop-shadow-md">
-      <input className="text-center text-md" placeholder='Enter text here' value={value} onChange={e => setValue(e.target.value)}/>
+    <div className="app max-w-2xl flex flex-col justify-center bg-gray-100 rounded-xl drop-shadow-md ">
+      <input className="text-center text-md" placeholder='Create a Table for Cars' value={value} onChange={e => setValue(e.target.value)}/>
       <div className='button-container flex justify-center space-x-3 text-lg'>
         <button className="bg-sky-300 rounded-2xl font-bold px-3 py-1" id='get-query' onClick={getQuery}>Generate!</button>
         <button className="bg-gray-800 rounded-2xl text-white px-3 py-1" id='clear-query' onClick={() =>{
