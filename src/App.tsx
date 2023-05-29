@@ -37,7 +37,7 @@ const App = () => {
         }
        const response = await fetch("http://localhost:8000/completions", options)
        const data = await response.json()
-       console.log('response',data)
+       //console.log('response',data)
        const userMessage = {
         role: "user",
         content: value
@@ -54,8 +54,8 @@ const filteredUserMessages = chat.filter(message => message.role==="user")
 const filteredGPTMessages = chat.filter(message => message.role==="assistant")
 const latest = filteredGPTMessages[filteredGPTMessages.length-1]
 
-console.log('latest', latest?.content)
-console.log(chat)
+//console.log('latest', latest?.content)
+//console.log(chat)
   return (
     <div className='max-w-2xl flex flex-col justify-center mx-auto my-12'>
       <div className='my-2'>
