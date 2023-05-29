@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface CodeDisplayProps{
-    text: string
+    text: any
 }
 const CodeDisplay = ({text}: CodeDisplayProps) => {
   return (
@@ -11,7 +11,7 @@ const CodeDisplay = ({text}: CodeDisplayProps) => {
             <div className='button second'></div>
             <div className='button third'></div>
         </div>
-        <div className='code-output font-mono'>
+        <div className='code-output font-mono flex justify-center text-left'>
             <p>{text}</p>
         </div>
     </div>

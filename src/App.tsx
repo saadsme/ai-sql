@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import MessagesDisplay from './components/MessagesDisplay';
 import CodeDisplay from './components/CodeDisplay';
+import { Bars } from 'react-loader-spinner';
 
 interface ChatData {
   role: string,
@@ -12,6 +13,7 @@ const App = () => {
   const [value, setValue] = useState<string>("")
   const [code, setCode] = useState<string>("")
   const [chat, setChat] = useState<ChatData[]>([])
+  const [loading, setLoading] = useState<boolean>(false)
   const [index, setIndex] = useState('')
 
   const handleIndex = (val: string) => {
@@ -25,6 +27,7 @@ const App = () => {
 
 
     const getQuery = async () =>{
+      setLoading(true)
       try{
         const options: RequestInit = {
           method: "POST",
@@ -44,9 +47,11 @@ const App = () => {
        }
        setChat(oldChat => [...oldChat, data, userMessage])
        setCode(data.content)
+       setLoading(false)
       }
       catch(error){
           console.error(error)
+          setLoading(false)
       }
     }
 
@@ -58,6 +63,7 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
 //console.log(chat)
   return (
     <div className='max-w-2xl flex flex-col justify-center mx-auto my-12'>
+        
       <div className='my-2'>
       <h1 className='w-100 flex items-center justify-center text-6xl font-bold '>Text to SQL</h1>
       <p className='w-100 flex items-center justify-center text-lg font-bold my-4'>Convert your Text to SQL in seconds with AI!</p>
@@ -72,7 +78,15 @@ const latest = filteredGPTMessages[filteredGPTMessages.length-1]
           setCode("")
         }}>Clear</button>
       </div>
-      <CodeDisplay text={code || "-"}/>
+      <CodeDisplay text={loading? <Bars
+          height="25"
+          width="25"
+          color="#ffbd2d"
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+/> : code || "_"}/>
       <MessagesDisplay userMessages={filteredUserMessages} loadUp={loadText} onIndex={handleIndex}/>
       
       
