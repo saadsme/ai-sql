@@ -38,7 +38,7 @@ const App = () => {
             message: value
           })
         }
-       const response = await fetch("https://ai-sql.tech/completions", options)
+       const response = await fetch("https://ai-sql.vercel.app/completions", options)
        const data = await response.json()
        //console.log('response',data)
        const userMessage = {
