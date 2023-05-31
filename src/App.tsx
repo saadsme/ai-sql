@@ -38,7 +38,7 @@ const App = () => {
             message: value
           })
         }
-       const response = await fetch("http://localhost:8000/completions", options)
+       const response = await fetch("http://ai-sql.tech/completions", options)
        const data = await response.json()
        //console.log('response',data)
        const userMessage = {
