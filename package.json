@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start:frontend": "react-scripts start",
-    "start:backend": "ts-node --esm index.ts",
+    "start:backend": "ts-node --esm api/index.ts",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
