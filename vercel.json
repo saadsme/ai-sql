@@ -5,7 +5,7 @@
         "headers": [
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "https://www.ai-sql.tech, https://ai-sql.tech, http://ai-sql.vercel.app"
+            "value": "https://www.ai-sql.tech,"
           }
         ]
       }
