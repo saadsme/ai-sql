@@ -38,7 +38,9 @@ const App = () => {
             message: value
           })
         }
-       const response = await fetch("https://ai-sql.vercel.app/api/completions", options)
+        const deploymentUrl = process.env.VERCEL_URL;
+        console.log("Backend deployed at:", deploymentUrl);
+       const response = await fetch(`${deploymentUrl}/api/completions`, options)
        const data = await response.json()
        //console.log('response',data)
        const userMessage = {
