@@ -38,7 +38,7 @@ const App = () => {
             message: value
           })
         }
-        const deploymentUrl = process.env.VERCEL_URL;
+        const deploymentUrl = window.location.origin;
         console.log("Backend deployed at:", deploymentUrl);
        const response = await fetch(`${deploymentUrl}/api/completions`, options)
        const data = await response.json()
