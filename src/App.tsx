@@ -40,7 +40,7 @@ const App = () => {
         }
         const deploymentUrl = window.location.origin;
         console.log("Backend deployed at:", deploymentUrl);
-       const response = await fetch(`${deploymentUrl}/completions`, options)
+       const response = await fetch(`api/completions`, options)
        const data = await response.json()
        //console.log('response',data)
        const userMessage = {
