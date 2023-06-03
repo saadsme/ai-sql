@@ -1,9 +1,6 @@
 import express, { Request, Response } from 'express';
 import { Configuration, OpenAIApi } from 'openai';
 
-
-
-
 const API_KEY: string = process.env.API_KEY as string;
 
 const configuration = new Configuration({
@@ -25,7 +22,7 @@ export async function POST(req :Request, res: Response) {
       ],
     });
     console.log(completion);
-    res.send(JSON.stringify(completion.data.choices[0].message));
+    return new Response(JSON.stringify(completion.data.choices[0].message))
   } catch (error) {
     console.error(error);
     return res.status(500).send('Server Error');
